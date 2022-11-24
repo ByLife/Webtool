@@ -1,9 +1,10 @@
 const Scrap = require('./src/app');
 
 async function main() {
-    const url = 'https://www.ruby-lang.org/en/about/license.txt';
+    const url = 'https://fr.wikipedia.org/wiki/Wiki';
     const html = await Scrap.get(url);
-    console.log(html);
+    const links = Scrap.scrapAllLinks(html)
+    console.log(links);
 }
 
 main()
