@@ -63,13 +63,13 @@ module.exports = new class Scraper {
         const jsdom = require('jsdom');
         const { JSDOM } = jsdom;
         const dom = new JSDOM(html);
-        const regex = new RegExp(regex);
+        var regex = new RegExp(regex);
         return dom.window.document.querySelectorAll(selector).forEach(element => {
             if (regex.test(element.innerHTML)) {
                 console.log(element.innerHTML);
             }
-        });
-        
+        });   
+    }
 
     convertHtmlToNode(html) {
         const jsdom = require('jsdom');
