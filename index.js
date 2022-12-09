@@ -1,10 +1,18 @@
-const Scrap = require('./src/app');
+const request = require("request")
 
-async function main() {
-    const url = 'https://fr.wikipedia.org/wiki/Wiki';
-    const html = await Scrap.get(url);
-    const links = Scrap.querySelectorAll(html, 'p').forEach(link => console.log(link.hasChildNodes()));
-    console.log(Scrap.querySelector(html, 'title').textContent)
+const get = (uri) => {
+    return new Promise((resolve, rejects) => {
+        request.get(uri, null, (err, _, body) => {
+            if(err) rejects(err)
+            resolve(body)
+        })
+    })
 }
 
-main()
+get("https://googfa").catch(() => console.log("Didn't work"))
+
+console.log("Chibgn zadazzda")
+
+setTimeout(() => {
+    console.log("La zdazaddaz")
+}, 10000)
